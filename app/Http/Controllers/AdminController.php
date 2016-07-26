@@ -105,7 +105,7 @@ class AdminController extends Controller
             $newJob->user_id = $user->id;
             $newJob->description = $job->description;
             $newJob->price = $job->price;
-            $newJob->job_state_id = 1;
+            $newJob->jobs_state_id = 1;
 
             $newJob->save();
 
