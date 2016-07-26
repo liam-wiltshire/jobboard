@@ -8,6 +8,7 @@ use App\Transactions;
 use Illuminate\Http\Request;
 use App\ClaimedJobs;
 use App\Jobs;
+use App\User;
 class HomeController extends Controller
 {
     /**
@@ -30,11 +31,16 @@ class HomeController extends Controller
         $user = $request->user();
         if ($user->userType->is_admin == 1){
             //Show any pending reviews
-            $jobs = Jobs::whereHas('JobState', function($q) {
-                $q->where('id','=', '2');
+            $jobs = Jobs::whereHas('ClaimedJob', function($q) {
+                $q->where('claimed_jobs_state_id','=', '2');
             })->get();
 
-            return view('admin.dashboard',['jobs'=>$jobs]);
+            //Get balances
+            $users = User::whereHas('UserType',function($q){
+                $q->where('is_admin','=','0');
+            })->get();
+
+            return view('admin.dashboard',['jobs'=>$jobs,'users'=>$users]);
         }else{
             //Show any pending jobs
             $jobs = Jobs::whereHas('JobState', function($q){

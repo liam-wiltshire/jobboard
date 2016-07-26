@@ -18,6 +18,11 @@ class Jobs extends Model
         return $this->hasOne('App\ClaimedJobs','job_id');
     }
 
+    public function ClaimedJobState(){
+        return $this->hasManyThrough('App\ClaimedJobsStates','App\ClaimedJobs','job_id');
+
+    }
+
     public function Reviews(){
         return $this->hasMany('App\JobReviews','job_id');
     }
