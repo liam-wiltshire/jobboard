@@ -30,6 +30,7 @@
                                             <a href="/user/job/{{$job->id}}" class="btn btn-success">View/Claim</a>
                                         </div>
                                     </div>
+                                </div>
                             @endforeach
                         </div>
                     </div>
