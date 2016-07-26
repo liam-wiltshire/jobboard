@@ -24,7 +24,8 @@
                                         <td><a href="/admin/editjob/{{$job->id}}">Edit</a>
                                         @if ($job->ClaimedJob && $job->ClaimedJob->ClaimedJobState->id == 2)
                                             <br /><a href="/admin/reviewjob/{{$job->id}}">Review</a>
-                                        @endif</td>
+                                        @endif
+                                            <br /><a href="/admin/duplicate/{{$job->id}}">Duplicate</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>

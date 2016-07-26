@@ -25,6 +25,8 @@ Route::get('/admin/editjob/{id}','AdminController@editJob');
 Route::post('/admin/createjob','AdminController@createJobPost');
 Route::post('/admin/editjob/{id}','AdminController@editJobPost');
 
+Route::get('/admin/duplicate/{id}','AdminController@duplicateJob');
+
 Route::get('/admin/reviewjob/{id}','AdminController@reviewJob');
 Route::post('/admin/reviewjob/{id}','AdminController@reviewJobPost');
 

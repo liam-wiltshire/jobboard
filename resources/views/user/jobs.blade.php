@@ -15,7 +15,7 @@
                     <div class="panel-heading">Your Jobs</div>
 
                     <div class="panel-body">
-                        <p>Key: To Do = Blue, Waiting For Review = Oranage, Rejected = Red, Completed = Green</p>
+                        <p>Key: To Do = Blue, Waiting For Review = Orange, Rejected = Red, Completed = Green</p>
                         <div class="row">
                             @foreach ($jobs as $job)
                                 <div class="col-sm-6 col-md-4">

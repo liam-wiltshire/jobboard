@@ -95,6 +95,27 @@ class AdminController extends Controller
     }
 
 
+    public function duplicateJob(Request $request,$jobId){
+        $user = $request->user();
+        if ($user->userType->is_admin == 1){
+            $job = Jobs::find($jobId);
+            $newJob = new Jobs();
+
+            $newJob->job = $job->job;
+            $newJob->user_id = $user->id;
+            $newJob->description = $job->description;
+            $newJob->price = $job->price;
+            $newJob->job_state_id = 1;
+
+            $newJob->save();
+
+            return redirect()->action('AdminController@jobs');
+        }else{
+            return redirect()->action('HomeController@index');
+        }
+    }
+
+
     public function createJob(Request $request){
         $user = $request->user();
         if ($user->userType->is_admin == 1){
