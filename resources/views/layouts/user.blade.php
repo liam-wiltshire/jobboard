@@ -47,9 +47,9 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
-                    <li><a href="{{ url('/admin/jobs') }}">Manage Jobs</a></li>
-                    <li><a href="{{ url('/admin/transactions') }}">Manage Transactions</a></li>
+                    <li><a href="{{ url('/home') }}">Available Jobs</a></li>
+                    <li><a href="{{ url('/user/jobs') }}">My Jobs</a></li>
+                    <li><a href="{{ url('/user/transactions') }}">My Account</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

@@ -51,6 +51,17 @@ class UserController extends Controller
         }
     }
 
+    public function transactions(Request $request){
+        $user = $request->user();
+        if ($user->userType->is_admin == 0){
+            $transactions = $user->Transactions()->orderBy('id','DESC');
+            $balance = $transactions->sum('amount');
+            return view('user.transactions',['transactions' => $transactions,'balance' => $balance]);
+        }else{
+            return redirect()->action('HomeController@index');
+        }
+    }
+
     public function jobs(Request $request){
         $user = $request->user();
         if ($user->userType->is_admin == 0){
